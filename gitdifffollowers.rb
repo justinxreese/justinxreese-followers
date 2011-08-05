@@ -11,6 +11,9 @@ Twitter.configure do |config|
   config.oauth_token_secret = key_file['oauth_token_secret']
 end
 
+
+g = Git.init('.')
+
 follower_file = File.new('followers','w')
 followers = Twitter.followers.users.sort{|x,y| x.id <=> y.id}.collect{|x| x.screen_name}
 followers.each do |f|
@@ -18,7 +21,6 @@ followers.each do |f|
 end
 
 begin
-  g = Git.init('.')
   g.add('.')
   g.commit('Followers for '+Time.now.to_s)
   g.push
