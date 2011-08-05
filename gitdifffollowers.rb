@@ -18,6 +18,5 @@ followers.each do |f|
 end
 
   g = Git.init('.')
-  g.add('.')
-  g.commit('Followers for '+Time.now.to_s)
+  g.commit_all('Followers for '+Time.now.to_s)
   # g.push
