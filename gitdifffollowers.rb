@@ -20,4 +20,4 @@ end
 follower_file.close
 
 g.commit_all('Followers for '+Time.now.to_s)
-  # g.push
+g.push
