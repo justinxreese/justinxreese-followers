@@ -20,3 +20,4 @@ end
 g = Git.init('.')
 g.add('.')
 g.commit('Followers for '+Time.now.to_s)
+g.push
