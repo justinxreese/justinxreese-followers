@@ -19,7 +19,7 @@ followers.each do |f|
 end
 
 g.status.changed.each do |file|
-puts file.inspect
+  g.add(file[0])
 end
 g.commit_all('Followers for '+Time.now.to_s)
   # g.push
