@@ -3,6 +3,7 @@ require "twitter"
 require "git"
 
 key_file = YAML.load_file('config.yml')
+g = Git.init('.')
 
 Twitter.configure do |config|
   config.consumer_key = key_file['consumer_key']
@@ -17,6 +18,5 @@ followers.each do |f|
   follower_file.puts f
 end
 
-  g = Git.init('.')
-  g.commit_all('Followers for '+Time.now.to_s)
+g.commit_all('Followers for '+Time.now.to_s)
   # g.push
