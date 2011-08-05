@@ -17,7 +17,11 @@ followers.each do |f|
   follower_file.puts f
 end
 
-g = Git.init('.')
-g.add('.')
-g.commit('Followers for '+Time.now.to_s)
-g.push
+begin
+  g = Git.init('.')
+  g.add('.')
+  g.commit('Followers for '+Time.now.to_s)
+  g.push
+rescue
+  puts 'nothing changed'
+end
