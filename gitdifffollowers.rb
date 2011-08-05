@@ -11,7 +11,7 @@ Twitter.configure do |config|
   config.oauth_token_secret = key_file['oauth_token_secret']
 end
 
-follower_file = File.new('followers','w')
+follower_file = File.open('followers','w')
 followers = Twitter.followers.users.sort{|x,y| x.id <=> y.id}.collect{|x| x.screen_name}
 followers.each do |f|
   follower_file.puts f
