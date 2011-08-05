@@ -18,5 +18,6 @@ followers.each do |f|
   follower_file.puts f
 end
 
+puts g.status
 g.commit_all('Followers for '+Time.now.to_s)
   # g.push
