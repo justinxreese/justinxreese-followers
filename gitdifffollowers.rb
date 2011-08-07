@@ -22,7 +22,7 @@ begin
   cursor = response.next_cursor 
 end while cursor > 0
 
-followers.sort!{|x,y| x.id <=> y.id}.collect{|x| x.screen_name}
+followers = followers.sort{|x,y| x.id <=> y.id}.collect{|x| x.screen_name}
 followers.each do |f|
   follower_file.puts f
 end
