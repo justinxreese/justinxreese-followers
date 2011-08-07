@@ -13,7 +13,16 @@ Twitter.configure do |config|
 end
 
 follower_file = File.open('followers','w')
-followers = Twitter.followers.users.sort{|x,y| x.id <=> y.id}.collect{|x| x.screen_name}
+
+cursor = -1 
+followers = [] 
+begin 
+  response = Twitter.followers :cursor => cursor 
+  followers += response.users 
+  cursor = response.next_cursor 
+end while cursor > 0
+
+followers.sort!{|x,y| x.id <=> y.id}.collect{|x| x.screen_name}
 followers.each do |f|
   follower_file.puts f
 end
