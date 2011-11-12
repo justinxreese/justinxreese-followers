@@ -1,3 +1,5 @@
+#!/usr/bin/ruby
+
 require "rubygems"
 require "yaml"
 require "twitter"
